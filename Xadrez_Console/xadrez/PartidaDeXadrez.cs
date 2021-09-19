@@ -7,8 +7,8 @@ namespace xadrez
     class PartidaDeXadrez
     {
         public Tabuleiro tab { get; private set; }
-        private int turno;
-        private Cor jogadorAtual;
+        public int turno { get; private set; }
+        public Cor jogadorAtual { get; private set; }
         public bool terminada { get; private set; }
 
 
@@ -22,12 +22,30 @@ namespace xadrez
 
         }
 
-        public void ExecutaMovimento(Posicao origem, Posicao destino)
+        public void executaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tab.retirarPeca(origem);
-           // p.incrementarQtdMovimentos();
+            //p.incrementarQtdMovimentos();
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
+        }
+
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            executaMovimento(origem, destino);
+            turno++;
+            mudaJogador();
+        }
+        private void mudaJogador()
+        {
+            if (jogadorAtual == Cor.Branca)
+            {
+                jogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                jogadorAtual = Cor.Branca;
+            }
         }
 
         private void colocarPecas()
