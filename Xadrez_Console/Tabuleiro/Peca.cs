@@ -19,15 +19,15 @@ namespace tabuleiro
             this.qteMovimentos = 0;
         }
 
-        //public void incrementarQteMovimentos()
-        //{
-        //    qteMovimentos++;
-        //}
+        public void incrementarQteMovimentos()
+        {
+            qteMovimentos++;
+        }
 
-        //public void decrementarQteMovimentos()
-        //{
-        //    qteMovimentos--;
-        //}
+        public void decrementarQteMovimentos()
+        {
+            qteMovimentos--;
+        }
 
         public bool existeMovimentosPossiveis()
         {
